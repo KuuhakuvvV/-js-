@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哈啊哈</title>
+    <style>
+        #dv{
+            height: 200px;
+            width: 300px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<!--<input type="button" value="隐藏" class="btn"/>
+<div class="dv"></div>
+<script src="common.js"></script>
+<script>
+    my$2("btn").onclick=function () {
+        if (this.value=="隐藏"){
+            my$2("dv").style.display="none";
+            this.value="显示";
+        }else if (this.value=="显示"){
+            my$2("dv").style.display="block";
+            this.value="隐藏";
+        }
+    }
+</script>-->
+<input type="button" value="隐藏" id="btn"/>
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick=function () {
+        if (this.value=="隐藏"){
+            my$("dv").style.display="none";
+            this.value="显示";
+        }else if (this.value=="显示"){
+            my$("dv").style.display="block";
+            this.value="隐藏";
+        }
+    }
+</script>
+</body>
+</html>

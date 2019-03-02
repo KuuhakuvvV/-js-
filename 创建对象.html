@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<script>
+     var dog=new Object();
+     dog.name="大黄";
+     dog.age=3;
+     dog.weight="125kg";
+     dog.color="黄色";
+     dog.eat=function () {
+         console.log("我喜欢吃大骨头");
+     };
+     dog.walk=function () {
+         console.log("我走路很慢");
+     };
+     dog.walk();
+
+    //工厂模式创建对象
+    function createObject(name,age) {
+        var obj=new Object();
+        //添加属性
+        obj.name=name;
+        obj.age=age;
+        //添加方法
+        obj.sayHi=function () {
+            console.log("果你吉瓦，我叫"+this.name+"我今年："+this.age+"岁了");
+        };
+        return obj;
+    }
+    //创建人的对象
+    var per1=createObject("傻批",18);
+    per1.sayHi();
+
+
+</script>
+
+
+
+
+</body>
+</html>

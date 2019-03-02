@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 720px;
+            height: 432px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        #inner{
+            width: 720px;
+            height: 432px;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #inner ul {
+            list-style: none;
+            width: 1000%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+
+        li{
+            list-style: none;
+            float: left;
+
+        }
+        li img{
+            width: 720px;
+            height: 432px;
+            vertical-align: top;
+        }
+        #dv2{
+            display: none;
+        }
+        #dv2 span{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+        #left{
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+        #right{
+            right: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+</style>
+</head>
+<body>
+<div id="box">
+    <div id="inner">
+        <ul>
+            <li><a href=""><img src="img/初音.jpg" /></a></li>
+            <li><a href=""><img src="img/初音反色.jpg" /></a></li>
+            <li><a href=""><img src="img/同框.jpg" /></a></li>
+            <li><a href=""><img src="img/雾纱.jpg" /></a></li>
+            <li><a href=""><img src="img/幻Miku.jpg"/></a></li>
+        </ul>
+
+    </div>
+    <div id="dv2">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+
+<script src="common.js"></script>
+<script>
+    //获取最外面的div
+    var box=my$("box");
+    //获取相框
+    var inner=my$("inner");
+    //获取相框的宽度
+    var imgWidth=inner.offsetWidth;
+    //获取ul
+    var ulObj=inner.children[0];
+    //获取左右焦点div
+    var dv2=my$("dv2");
+    //隐藏左右焦点div
+    box.onmouseover=function(){
+        dv2.style.display="block";
+    };
+    box.onmouseout=function(){
+        dv2.style.display="none";
+    };
+    var index=0;
+    //点击左边按钮
+    my$("left").onclick=function () {
+        if (index>0) {
+            index--;
+            animate(ulObj, -index*imgWidth);
+        }
+    } ;
+    //点击右边按钮
+    my$("right").onclick=function () {
+        if (index < ulObj.children.length - 1) {
+            index++;
+            animate(ulObj,-index*imgWidth);
+        }
+    };
+    console.log(index);
+
+</script>
+</body>
+</html>

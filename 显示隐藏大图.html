@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .show{
+            height:432px;
+            width:720px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="dv1">
+    <a><img src="img/初音.jpg" height="72" width="120"/></a>
+</div>
+<div class="box hide" id="dv2">
+    <img src="img/初音.jpg"/>
+</div>
+<script src="common.js"></script>
+<script>
+    var aObj=my$("dv1").getElementsByTagName("a")[0];
+    aObj.onmouseover=function () {
+        my$("dv2").className="box show";
+    };
+    aObj.onmouseout=function () {
+        my$("dv2").className="box hide";
+    };
+
+</script>
+
+</body>
+</html>

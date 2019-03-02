@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="All" type="checkbox">全选 <br>
+    <div id="tab">
+        <input type="checkbox"> 1<br>
+        <input type="checkbox">2 <br>
+        <input type="checkbox"> 3<br>
+        <input type="checkbox">4 <br>
+    </div>
+<script src="common.js"></script>
+<script>
+    //获取全选框
+    var ckAll=my$("All");
+    //获取所有小复选框
+    var cks=my$("tab").getElementsByTagName("input");
+    //全选框注册点击事件
+    ckAll.onclick=function () {
+      for (var i=0;i<cks.length;i++){
+          cks[i].checked=this.checked;
+      }
+    };
+    //为所有小复选框注册点击事件
+    for (var i=0;i<cks.length;i++){
+        cks[i].onclick=function () {
+            var flag=true;//默认所以复选框被选中
+            //判断复选框是否全部选择
+            for (j=0;j<cks.length;j++){
+                if (cks[j].checked!=true){
+                    //没选中进入循环
+                    flag=false;
+                    break;//跳出循环
+                }
+            }
+            //全选框checked的值就等于flag变量的值
+            ckAll.checked=flag;
+        };
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度项目</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+       #dv1{
+           margin: 0 auto;
+           width: 400px;
+           margin-top:19%;
+        }
+        #txt{
+            height: 20px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+<div id="dv1">
+    <input type="text" value="" id="txt">
+    <input type="button" value="搜索" id="btn">
+</div>
+
+<script src="common.js"></script>
+<script>
+    var keyWords=["强哥牛皮","强哥社会","强哥真的强","听说黄钟猛打字很快","听说强哥打字很慢",
+        "不动明王罗永强","我觉得还行罗永强","这个项目我承包了"];
+    //获取文本框输入的内容
+    my$("txt").onkeyup=function () {
+        //进入循环，先清理dv2
+        if (my$("dv2")){
+            my$("dv1").removeChild(my$("dv2"))
+        }
+
+
+        var text = this.value;
+        var tempArr = [];//临时数组--空数组----->存放对应上的数据
+        //把文本框输入的内容和数组中的每个数据对比
+        for (var i = 0; i < keyWords.length; i++) {
+            //是否是最开始出现的数据
+            if (keyWords[i].indexOf(text)==0) {
+                tempArr.push(keyWords[i]);//追加到tempArr数组的最后
+            }
+        }
+        if (text.length==0||tempArr.length==0) {
+            //判断页面中是否存在dv2，有则删除
+            if (my$("dv2")){
+                my$("dv1").removeChild(my$("dv2"))
+            }
+            return;
+        }
+        //遍历临时数组，创建div
+        var dvObj=document.createElement("div");
+        my$("dv1").appendChild(dvObj);
+        dvObj.style.width="250px";
+        dvObj.style.border="1px solid black";
+        dvObj.id="dv2";
+        //循环遍历创建P标签
+        for (var i=0;i<tempArr.length;i++){
+            var pObj=document.createElement("p");
+            dvObj.appendChild(pObj);
+            pObj.style.margin="0px";
+            pObj.style.padding="0px";
+            pObj.style.border="0px";
+            setInnerText(pObj,tempArr[i]);
+            pObj.onmouseover=function () {
+                this.style.backgroundColor="pink"
+            };
+            pObj.onmouseout=function () {
+                this.style.backgroundColor=""
+            };
+            }
+
+
+
+    }
+</script>
+</body>
+</html>

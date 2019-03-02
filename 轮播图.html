@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #box {
+        width: 720px;
+        height: 432px;
+        margin: 100px auto;
+        padding: 5px;
+        border: 1px solid #ccc;
+        position: relative;
+    }
+    #inner{
+        width: 720px;
+        height: 432px;
+        position: relative;
+        overflow: hidden;
+
+    }
+    #inner ul {
+        list-style: none;
+        width: 1000%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+
+    li{
+        list-style: none;
+        float: left;
+
+    }
+    li img{
+        width: 720px;
+        height: 432px;
+        vertical-align: top;
+    }
+    #dv2{
+        position: absolute;
+        right: 20px;
+        bottom: 1px;
+    }
+    #dv2 span{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        text-align: center;
+        line-height: 16px;
+    }
+    #dv2 span.current{
+        background-color: orangered;
+        color: #ffffff;
+    }
+</style>
+</head>
+<body>
+    <div id="box">
+        <div id="inner">
+        <ul>
+            <li><a href=""><img src="img/初音.jpg" /></a></li>
+            <li><a href=""><img src="img/初音反色.jpg" /></a></li>
+            <li><a href=""><img src="img/同框.jpg" /></a></li>
+            <li><a href=""><img src="img/雾纱.jpg" /></a></li>
+            <li><a href=""><img src="img/幻Miku.jpg"/></a></li>
+        </ul>
+        <div id="dv2">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+        </div>
+    </div>
+
+<script src="common.js"></script>
+<script>
+    //获取最外面的div
+    var box=my$("box");
+    //获取相框
+    var inner=my$("inner");
+    //获取相框的宽度
+    var imgWidth=inner.offsetWidth;
+    console.log(imgWidth);
+    //获取ul
+    // var ulObj=inner.children[0];
+    var ulObj=inner.getElementsByTagName("ul")[0];
+    //获取所有的span标签
+    var spanObj=document.getElementById("dv2").getElementsByTagName("span");
+
+    //循环遍历所有的span标签，注册鼠标进入事件
+    for (var i=0;i<spanObj.length;i++){
+        //把索引值保存在自定义属性中
+        spanObj[i].setAttribute("index",i);
+        spanObj[i].onmouseover=function () {
+            //取消所有span标签的类样式
+            for (var j=0;j<spanObj.length;j++){
+                spanObj[j].removeAttribute("class");
+            }
+            //设置当前span标签的类样式
+            this.className="current";
+            //移动ul
+            //获取当前span标签的索引
+            var index=this.getAttribute("index");
+            animate(ulObj,-index*imgWidth);
+        };
+    }
+
+</script>
+</body>
+</html>

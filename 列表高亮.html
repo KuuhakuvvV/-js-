@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            cursor: pointer;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="uu">
+    <li>奥迪</li>
+    <li>兰博基尼</li>
+    <li>布加迪</li>
+    <li>迈凯伦</li>
+    <li>阿斯顿马丁</li>
+    <li>法拉利</li>
+    <li>柯尼赛格</li>
+    <li>帕加尼</li>
+    <li>玛莎拉蒂</li>
+    <li>劳斯莱斯</li>
+</ul>
+<script src="common.js"></script>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // var list = my$("uu").getElementsByTagName("li");
+    // for (i = 0;i < list.length;i++
+    // )
+    // {
+    //     //注册鼠标进入事件
+    //     list[i].onmouseover = function () {
+    //         this.style.backgroundColor="red";
+    //     }
+    //     //注册离开事件
+    //     list[i].onmouseout = function () {
+    //         this.style.backgroundColor="";
+    //     }
+    // }
+
+    $("#uu>li").mouseenter(function () {
+        $(this).css("backgroundColor","red")
+    }).mouseleave(function () {
+        $(this).css("backgroundColor","")
+    }).click(function () {
+        $(this).css("backgroundColor","green")
+    });
+
+</script>
+</body>
+</html>

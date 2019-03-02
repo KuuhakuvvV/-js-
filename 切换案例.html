@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            border: 0;
+            padding: 0;
+        }
+
+        .box2 {
+            background-color: #000;
+            background: rgba(0, 0, 0, 0.6);
+            position: relative;
+            width: 100%;
+            /*height: 500px;*/
+            z-index: 2;
+        }
+
+        .hd {
+            text-align: center;
+        }
+
+        .hd span.current {
+            background-color: #377486;
+        }
+
+        .hd span {
+            margin: 0px 20px 0 20px;
+            width: 50px;
+            font-size: 30px;
+            padding: 0 20px 0 20px;
+            cursor: pointer;
+        }
+
+        .bd {
+            width: 960px;
+            margin: 0 auto;
+            height: 285px;
+            position: relative;
+        }
+
+        .bd li {
+            list-style-type: none;
+            display: none;
+        }
+
+        .im {
+            width: 280px;
+            position: absolute;
+        }
+
+        .txt {
+            width: 650px;
+            margin-left: 280px;
+            position: absolute;
+        }
+
+        .bd li.current {
+            display: block;
+        }
+
+        .bd p {
+            font-size: 18px;
+            color: #cccccc;
+            margin: 18px 0 18px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="dv1">
+    <div class="hd">
+        <span class="current">桐人</span>
+        <span>亚丝娜</span>
+        <span>由衣</span>
+        <span>诗乃</span>
+    </div>
+    <div class="box2">
+        <div class="bd">
+            <ul>
+                <li class="current">
+                    <div class="im"><img src="imgTH/Kirito.png" width="250"/></div>
+                    <div class="txt">
+                        <p>桐人/桐谷和人</p>
+                        <p>声优：松冈祯丞</p>
+                        <p>武器：黑剑·阐释者、白剑·逐暗者（SAO）；单手剑、圣剑·Excalibur（ALO）；光剑·影光G4、手枪·FN
+                            Five-Seven（GGO）；神器·夜空之剑、神器神器·青蔷薇之剑（UW)</p>
+                        <p>称号：黑衣剑士、二刀流</p>
+                        <p>把噩梦一般的死亡游戏《刀剑神域（SAO）》引导向了胜利的"英雄"</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="im"><img src="imgTH/Asuna.png" width="250"/></div>
+                    <div class="txt">
+                        <p>亚丝娜/结城明日奈</p>
+                        <p>声优：户松遥</p>
+                        <p>武器：细剑·闪烁之光（SAO）；细剑、双手用法杖·世界树之杖（ALO）；细剑·Radiant Light（UW）</p>
+                        <p>称号：称号：闪光、狂暴补师</p>
+                        <p>在《SAO》里拥有着"闪光"的别称，使用轻剑的少女。现实和假想世界中都是桐人的恋人。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="im"><img src="imgTH/Yui.png" width="250"/></div>
+                    <div class="txt">
+                        <p>结衣</p>
+                        <p>声优：伊藤加奈惠</p>
+                        <p>桐人和亚丝娜的第一个孩子（度蜜月期间在森林里捡到的）。真正身份是SAO的MHCP，负责维护玩家精神健康的咨询用AI。</p>
+                        <p>称桐人和亚斯娜为爸爸妈妈，</p>
+                        <p>像孩子一样追随在他们身边。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="im"><img src="imgTH/Sinon.png" width="250"/></div>
+                    <div class="txt">
+                        <p>诗乃（诗浓）/朝田诗乃</p>
+                        <p>声优：泽城美雪</p>
+                        <p>器：反器材狙击步枪·PGM Ultima Ratio Hecate Ⅱ（主武器）、冲锋枪·HK MP7（副武器）（GGO）;光弓·Shekinah（ALO）;长弓·Annihilate
+                            Ray（UW)</p>
+                        <p>称号：冰之狙击手</p>
+                        <p>Alicization篇中为了支援亚丝娜，通过菊冈给予GM帐号"太阳之神·索尔斯"登入Under World。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="common.js"></script>
+<script>
+    //获取最外面的div
+    var box = my$("dv1");
+    // //获取第一个div
+    // var hd = box.getElementsByTagName("div")[0];
+    // //获取第二个box
+    // var box2 = box.getElementsByTagName("div")[1];
+    // //获取第二个div
+    // var bd = box2.getElementsByTagName("div")[0];
+    // //获取所有的span标签
+    // var spans = hd.getElementsByTagName("span");
+    // //获取所有的li标签
+    // var list = bd.getElementsByTagName("li");
+
+
+
+    //获取第一个div
+    var hd = box.getElementsByClassName("hd")
+    //获取第二个div
+    var bd = box.getElementsByClassName("bd")
+    //获取所有的span标签
+    var spans = hd[0].getElementsByTagName("span");
+    //获取所有的li标签
+    var list = bd[0].getElementsByTagName("li");
+
+
+
+
+
+    //循环遍历添加点击事件
+    for (var i=0;i<spans.length;i++) {
+        //在点击前将索引存入span中
+        spans[i].setAttribute("index",i);
+        //注册点击事件
+        spans[i].onclick=function () {
+            //清除所有类样式
+            for (var j = 0; j < spans.length;j++){
+                spans[j].removeAttribute("class");
+            }//for end
+            //当前点击应用类样式
+            this.className="current";
+            //span被点击获取存储的索引
+            var num = this.getAttribute("index");
+            //获取所有的li标签,每个li标签先全部隐藏
+            for (var k = 0; k < list.length; k++) {
+                list[k].removeAttribute("class");
+                //当前被点击的span对应的li标签显示
+                list[num].className = "current";
+            }//for end
+        };//function end
+    }//for end
+
+</script>
+</body>
+</html>

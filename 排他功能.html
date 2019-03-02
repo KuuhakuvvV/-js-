@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<img src="img/雾纱.jpg" alt=" " id="im1"/>-->
+<!--<img src="img/雾纱.jpg" alt=" " id="im2"/>-->
+<!--<img src="img/雾纱.jpg" alt=" " id="im3"/>-->
+<!--<img src="img/初音.jpg" alt="" id="im"/>-->
+<div class="box">
+    <input type="button" value="帅吗"/>
+    <input type="button" value="帅吗"/>
+    <input type="button" value="帅吗"/>
+    <input type="button" value="帅吗"/>
+    <input type="button" value="帅吗"/>
+</div>
+
+<script>
+    // var imgObjs = document.getElementsByTagName("img");
+    // for (var i = 0; i<imgObjs.length; i++) {
+    //     imgObjs[i].onclick = function () {
+    //         alert("又被点了");
+    //     };
+    // }
+
+    // var imgObj = document.getElementById("im");
+    // imgObj.onclick=function () {
+    //   this.width=800;
+    //   this.height600;
+    // };
+
+    //获取所有的按钮，分别注册点击事件
+    var btnObj = document.getElementsByTagName("input");
+    //循环遍历所有的按钮
+    for (var i = 0; i < btnObj.length; i++) {
+        //为每个按钮注册点击事件
+        btnObj[i].onclick = function () {
+            //把所有按钮的value值设置为默认值，帅吗
+            for (var j = 0; j < btnObj.length; j++) {
+                btnObj[j].value = "帅吗";
+            }
+            //当前被点击按钮改变为帅
+            this.value = "帅";
+        };
+    }
+
+</script>
+</body>
+</html>

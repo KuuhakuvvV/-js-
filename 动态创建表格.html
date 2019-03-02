@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dv {
+            width: 800px;
+            height: 600px;
+            border: 1px solid hotpink;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //点击按钮在div中创建一个表格
+        //表格数据数组
+        $(function () {
+          var arr=[
+            {"name":"帅的一批","href":"http://www.bilibili.com"},
+            {"name":"帅的二批","href":"http://www.bilibili.com"},
+            {"name":"帅的三批","href":"http://www.bilibili.com"},
+            {"name":"帅的四批","href":"http://www.bilibili.com"},
+            {"name":"帅的五批","href":"http://www.bilibili.com"},
+            {"name":"帅的六批","href":"http://www.bilibili.com"}
+          ];
+          //点击按钮
+          $("#btn").click(function () {
+            //创建表格
+            var table=$("<table border='1' cellpadding='0' cellspacing='0'></table>");
+            //把表格添加到div中
+            $("#dv").html(table);
+            //循环遍历数组,创建行
+            for (var i=0;i<arr.length;i++){
+              var dt=arr[i];
+              //创建行tr并添加到表格中
+              var tr=$("<tr></tr>");
+              table.append(tr);
+              //创建列td并加入到表格中
+              var td1=$("<td>"+dt.name+"</td>");
+              tr.append(td1);
+              var td2=$("<td><a href='"+dt.href+"'>"+dt.name+"</a></td>");
+              tr.append(td2);
+              //进入行高亮显示
+              //创建鼠标进入和鼠标离开事件
+              tr.mouseenter(function () {
+                $(this).css("backgroundColor","hotpink");
+              }).mouseleave(function () {
+                $(this).css("backgroundColor","");
+              });
+            }
+          });
+        });
+
+    </script>
+</head>
+<body>
+<input type="button" value="创建表格" id="btn">
+<div id="dv"></div>
+</body>
+</html>

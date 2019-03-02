@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 720px;
+            height: 432px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        #inner{
+            width: 720px;
+            height: 432px;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #inner ul {
+            list-style: none;
+            width: 1000%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+
+        li{
+            list-style: none;
+            float: left;
+
+        }
+        li img{
+            width: 720px;
+            height: 432px;
+            vertical-align: top;
+        }
+        ol{
+            position: absolute;
+            right: 20px;
+            bottom: 1px;
+        }
+        ol li{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+        }
+        ol li.current{
+            background-color: orangered;
+            color: #ffffff;
+        }
+        #dv3{
+            display: none;
+        }
+        #dv3 span{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+        #left{
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+        #right{
+            right: 5px;
+            top: 50%;
+            margin-top: -20px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="inner">
+        <ul>
+            <li><a href=""><img src="img/初音.jpg" /></a></li>
+            <li><a href=""><img src="img/初音反色.jpg" /></a></li>
+            <li><a href=""><img src="img/同框.jpg" /></a></li>
+            <li><a href=""><img src="img/雾纱.jpg" /></a></li>
+            <li><a href=""><img src="img/幻Miku.jpg"/></a></li>
+        </ul>
+        <ol>
+
+        </ol>
+        <div id="dv3">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+</div>
+
+<script src="common.js"></script>
+<script>
+    //获取最外面的div
+    var box=my$("box");
+    //获取相框
+    var inner=my$("inner");
+    //获取相框的宽度
+    var imgWidth=inner.offsetWidth;
+    //获取ol
+    var olObj=inner.children[1];
+    //获取ul
+    var ulObj=inner.children[0];
+    //获取ul中的所有的li
+    var list=ulObj.children;
+    var pic=0
+
+    //轮播图小按钮功能
+    for (var i=0;i<list.length;i++){//创建小按钮---根据li数量
+
+        var liObj=document.createElement("li");//创建li标签，加入到ol中
+        //为每个li标签加入一个自定义属性，存储索引
+        liObj.setAttribute("index",i);
+        olObj.appendChild(liObj);
+        liObj.innerHTML=i+1;
+        //注册鼠标进入事件
+
+        // liObj.onmouseover=function () {
+        //     for (var j = 0; j <olObj.children.length; j++) {
+        //         //先干掉所有的li背景颜色
+        //         olObj.children[j].removeAttribute("class");
+        //     }
+        //     //设置当前span标签的类样式
+        //     this.className = "current";
+        // }
+        //取消所有li标签的类样式
+        var newLiObj=olObj.children;
+        liObj.onmouseover=function () {
+            for (var j = 0; j < newLiObj.length; j++) {
+                newLiObj[j].removeAttribute("class");
+            }
+            //设置当前li标签的类样式
+            this.className = "current";
+            //获取鼠标当前进入li标签的索引值
+            pic=this.getAttribute("index");
+            VSanimate(ulObj,"left",-pic*imgWidth);
+        };
+    }
+    //为第一个li标签添加类样式
+    olObj.children[0].className="current";
+    //克隆ul中的第一个li，加入到ul的最后
+    ulObj.appendChild(ulObj.children[0].cloneNode(true));
+    //
+
+
+
+    //自动播放功能
+    var timeID=setInterval(clickHandLe,2000);
+
+
+
+
+    //焦点轮播图功能
+    var dv3=my$("dv3");//获取左右焦点div
+
+    //显示左右焦点div
+    box.onmouseover=function(){
+        dv3.style.display="block";
+        clearInterval(timeID);
+    };
+    //隐藏左右焦点div
+    box.onmouseout=function(){
+        dv3.style.display="none";
+        timeID=setInterval(clickHandLe,2000);
+    };
+    //点击左边按钮
+    my$("left").onclick=function () {
+        if (pic==0){
+            pic=5;
+            ulObj.style.left=-pic*imgWidth+"px";
+        }
+        pic--;
+        VSanimate(ulObj,"left",-pic*imgWidth);
+        //设置小按钮的颜色
+        for (var i=0;i<olObj.children.length;i++){
+            //干掉所有小按钮的颜色
+            olObj.children[i].removeAttribute("class");
+        }
+        //当前pic对应的按钮设置颜色
+        olObj.children[pic].className="current";
+    };
+
+    //点击右边按钮
+    my$("right").onclick=clickHandLe;
+    function clickHandLe() {
+        if (pic==list.length-1){
+            pic=0;
+            ulObj.style.left=0+"px"
+        }
+        pic++;
+        VSanimate(ulObj,"left",-pic*imgWidth);
+        //如果pic==5 显示第六张图（内容是第一张图片），应该是第一个按钮有颜色
+        if (pic==list.length-1){
+            //干掉第五个按钮颜色
+            olObj.children[olObj.children.length-1].className="";
+            //设置第一个按钮颜色
+            olObj.children[0].className="current";
+        } else {
+            for (var i=0;i<olObj.children.length;i++){
+                olObj.children[i].removeAttribute("class");
+            }
+            olObj.children[pic].className="current";
+        }
+    };
+
+
+</script>
+</body>
+</html>

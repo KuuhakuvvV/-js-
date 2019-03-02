@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="事件" id="btn1">
+<input type="button" value="解绑事件" id="btn2">
+
+<script src="common.js"></script>
+<script>
+    function f1(){
+        console.log("哈哈")
+    }
+    addEventListener(my$("btn1"),"click",f1);
+    my$("btn2").onclick=function (){
+        removeEventListener(my$("btn1"),"click",f1);
+    }
+
+</script>
+</body>
+</html>

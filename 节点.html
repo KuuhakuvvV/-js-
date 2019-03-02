@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <p>这是一个p</p>
+        <ul id="uu">
+            <li>穹</li>
+            <li>克鲁鲁采佩西</li>
+            <li id="three">忍野忍</li>
+            <li>宝多六花</li>
+            <li>伊莉雅</li>
+        </ul>
+    </div>
+
+<script src="common.js"></script>
+<script>
+    var ulObj=document.getElementById("uu");
+    //父级节点
+    console.log(ulObj.parentNode);
+    //父级元素
+    console.log(ulObj.parentElement);
+    //子节点
+    console.log(ulObj.childNodes);
+    //子元素
+    console.log(ulObj.children);
+    console.log("============================");
+    //第一个子节点
+    console.log(ulObj.firstChild);
+    //第一个子元素
+    console.log(ulObj.firstElementChild);
+    //最后一个子节点
+    console.log(ulObj.lastChild);
+    //最后一个子元素
+    console.log(ulObj.lastElementChild);
+    //某个元素的前一个兄弟节点
+    console.log(my$("three").previousSibling);
+    //某个元素的前一个兄弟元素
+    console.log(my$("three").previousElementSibling);
+    //某个元素的后一个兄弟节点
+    console.log(my$("three").nextSibling);
+    //某个元素的后一个兄弟元素
+    console.log(my$("three").nextElementSibling);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //类型转换/
+    //;//
+    //转数字
+    /* 类型转换练习
+    var num = 10;
+     console.log(parseInt(num));//转整数
+     console.log(parseFloat(num));//转小数
+     console.log(Number(num));//转数字
+     //转字符串
+     console.log(num.toString());
+     //转布尔类型
+     console.log(Boolean(num));
+     num++;
+     console.log(num);
+     */
+    /*变量交换练习
+    var i = 10;
+    *var o = 20;
+    *var p;
+    *p = i;
+    *i = o;
+    *o = p ;
+    *console.log(i);
+    *console.log(o);
+    *i = i + o;//30
+    *o = i - o;//20
+    *i = i - o;//10
+    *console.log(i);
+    *console.log(o);
+    */
+    /*变量交换练习
+    var num1 = 10;
+    var num2 = 20;
+    var num3 = num1;
+    num1 = num2;
+    num2 = num3;
+    console.log(num1);
+    console.log(num2);
+    */
+    /* 变量交换练习
+    var num1 = 10;
+    var num2 = 20;
+    num1 = num1 + num2;
+    num2 = num1 - num2;
+    num1 = num1 - num2;
+    console.log(num1);
+    console.log(num2);
+    */
+    /* 变量交换练习
+    var num1 = 10;
+    var num2 = 20;
+    var num3 = num1;
+    num1 = num2;
+    num2 = num3;
+    console.log(num1);
+    console.log(num2);
+    */
+    /* 变量交换练习
+    var num1 = 10;
+    var num2 = 20;
+    num1 = num1 + num2;
+    num2 = num1 - num2;
+    num1 = num1 - num2;
+    console.log(num1);
+    console.log(num2);
+    */
+    /*类型转换
+    * parseInt()//转换整数
+    * parseFloat()//转换小数
+    * Number()//转换为数字
+    * .toString()//转换为字符串
+    * Boolean()//转换为布尔类型
+    *
+    * */
+    /*类型转换（整数）
+    console.log(parseInt("10"));
+    console.log(parseInt("10.0"));
+    console.log(parseInt("10.3"));
+    console.log(parseInt("10s"));
+    console.log(parseInt("i10"));
+    console.log(parseInt("s0"));
+    */
+    /* 类型转换（小数）
+    console.log(parseFloat("10.00"));
+    console.log(parseFloat("10"));
+    console.log(parseFloat("10.63"));
+    console.log(parseFloat("is10.0"));
+    console.log(parseFloat("is10"));
+    console.log(parseFloat("10.63odsadowasdowa"));
+    console.log(parseFloat("10dwasdwasdwa"));
+    */
+    /* 类型转换（数字）
+    console.log(Number("10.00"));
+    console.log(Number("10"));
+    console.log(Number("10.63"));
+    console.log(Number("is10.0"));
+    console.log(Number("is10"));
+    console.log(Number("10.63odsadowasdowa"));
+    console.log(Number("10dwasdwasdwa"));
+    */
+    //if else 语句
+    // var num = 30;
+    // console.log(num.toString())
+    // var num1 = 20;
+    // var num2 = 100;
+    // if (num1 >= num2) {
+    //     console.log(num1);
+    // } else {
+    //     console.log(num2);
+    // }
+
+    // var num = prompt("请输入你的年龄");
+    // console.log(Number(num));
+
+    //if else 语句
+    // var num = parseInt(prompt("请输入数字"));
+    // if (num%2 == 0){
+    //     console.log("偶数");
+    // } else {
+    //     console.log("奇数");
+    // }
+
+
+    //三元表达式
+    // var num = 18;
+    // var result = num>=18?"成年了":"未成年";
+    // console.log(result);
+    //
+    // var int = "是";
+    // var clf = int == "是"?"陈琳丰是傻批":"陈琳丰不是傻批";
+    // console.log(clf);
+
+    //if -else if -else if -else if.... else语句
+    // var score = Number(prompt("请输入您的成绩"));
+    // if (score==NaN){
+    //     if (score <= 100 && score > 90) {
+    //         console.log("A");
+    //     } else if (score > 80) {
+    //         console.log("B");
+    //     } else if (score > 70) {
+    //         console.log("C");
+    //     } else if (score > 60) {
+    //         console.log("D");
+    //     } else {
+    //         console.log("E");
+    //     }
+    // }else if(score>100){
+    //     console.log("请输入数字0-100");
+    // }else{
+    //     console.log("请输入正确的数字");
+    // }
+
+    // if else 语句
+    // var year = parseInt(prompt("请输入年份"));
+    // if (year % 4 == 0 && year % 100 !== 0 || year % 400 == 0) {
+    //     console.log("闰年");
+    // }else {
+    //     console.log("平年");
+    // }
+
+    // //switch case语句
+    // var jiBie = prompt("请输入成绩级别");
+    // switch (jiBie) {
+    //     case "A":
+    //         console.log("90到100之间");
+    //         break;
+    //     case "B":
+    //         console.log("80到90之间");
+    //         break;
+    //     case "C":
+    //         console.log("70到80之间");
+    //         break;
+    //     case "D":
+    //         console.log("60到70之间");
+    //         break;
+    //     case "E":
+    //         console.log("0到60之间");
+    //         break;
+    //     default:
+    //         console.log("请输入正确级别");
+    // }
+
+    //switch case语句
+    // var month = parseInt(prompt("请输入月份"));
+    // switch (month) {
+    //     case 1:
+    //     case 3:
+    //     case 5:
+    //     case 7:
+    //     case 8:
+    //     case 10:
+    //     case 12:
+    //         console.log("31天");
+    //         break;
+    //     case 4:
+    //     case 6:
+    //     case 9:
+    //     case 11:
+    //         console.log("30天");
+    //         break;
+    //     case 2:
+    //         console.log("28天");
+    //         break;
+    //     default:
+    //         console.log("请输入正确月份");
+    // }
+
+    //while循环语句
+    // var i=0;
+    // while (i<10){
+    //     i++;
+    //     console.log("哈哈，我又变帅了"+(i));
+    // }
+
+
+    //while循环语句
+    // var sum = 0;
+    // var i = 0;
+    // while (i <= 100) {
+    //     sum = sum + i;
+    //     i++;
+    // }
+    // console.log(sum);
+
+    //while循环练习
+
+    // var k=1;
+    // var i=1;
+    // while (i<=6){
+    //     k=k*i;
+    //     i++;
+    // }
+    // console.log(k);
+
+    // var sum = 0;
+    // var i = 0;
+    // while (i <= 100) {
+    //     //判断这个数字是不是偶数，如果是，则放在sum中
+    //     if(i%2==0){
+    //         sum+=i;
+    //     }
+    //     i++;
+    // }
+    // console.log(sum);
+
+    // var sum = 0;
+    // var i = 0;
+    // while (i <= 100) {
+    //     //判断这个数字是不是奇数，如果是，则放在sum中
+    //     if(i%2!=0){
+    //         sum+=i;
+    //     }
+    //     i++;
+    // }
+    // console.log(sum);
+
+    // var sum =0;
+    // var i=0;
+    // while (i<=100){
+    //     if (i%2!=0) {
+    //         sum+=i;
+    //     }
+    //     i++;
+    // }
+    // console.log(sum);
+
+    // var i=1;
+    // while (i<=100){
+    //     //判断数字是否能够被7整除
+    //     if (i%7==0) {
+    //        console.log(i);
+    //     }
+    //     i++;
+    // }
+
+    // var userName=prompt("请您输入帐号");//存储帐号
+    // var userPwd=prompt("请您输入密码");//存储密码
+    // while (userName!="admin"||userPwd!="123") {
+    //     userName=prompt("请您输入帐号");//存储帐号
+    //     userPwd=prompt("请您输入密码");//存储密码
+    // }
+    // console.log("登陆成功");
+
+    //do-while循环
+    // var i=0;
+    // do {
+    //     console.log("傻批");
+    //     i++
+    // }while (i<10);
+
+    // do {
+    //     var i = prompt("你觉得我帅吗yes/no");
+    // }while (i!="yes");
+    // console.log("您真有眼光");
+
+    // var sum=0;
+    // var i=1;
+    // while (i<=100){
+    //     if (i%3==0){
+    //         sum+=i;
+    //     }
+    //     i++;
+    // }
+    // console.log(sum);
+
+
+    //for 循环
+
+    // var sum=0;
+    // for (var i=0;i<=100;i++){
+    //     if (i%2==0) {
+    //         sum+=i;
+    //     }
+    // }
+    // console.log(sum);//2550
+
+    // var sum=0;
+    // for (var i=0;i<=100;i++){
+    //     if (i%3==0) {
+    //         sum+=i;
+    //     }
+    // }
+    // console.log(sum);//1683
+
+    // var sum=0;
+    // for (var i=0;i<=100;i++){
+    //     if (i%7==0) {
+    //         sum+=i;
+    //     }
+    // }
+    // console.log(sum);//735
+
+    //画星星
+
+    // document.write("*");
+    // for (var i=0;i<=5;i++){
+    //     for(var j=0; j<=i;j++){
+    //         document.write("*")
+    //     }
+    //     document.write("</br>")
+    // }
+
+    //基础九九乘法表
+    // for (var i=1;i<=9;i++){
+    //     for (var j=1;j<=i;j++){
+    //         document.write(j+"*"+i+"="+j*i+" ");
+    //     }
+    //     document.write("</br>")
+    // }
+
+    //表格版九九乘法表
+    // document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+    // for (var i=1;i<=9;i++){
+    //     document.write("<tr>");
+    //     for (var j=1;j<=i;j++){
+    //         document.write("<td>");
+    //         document.write(j+"*"+i+"="+j*i);
+    //         document.write("</td>");
+    //     }
+    //     document.write("</tr>");
+    //
+    // }
+    // document.write("</table>");
+
+
+</script>
+</body>
+</html>

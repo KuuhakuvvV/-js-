@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 300px;
+            border: 2px solid pink;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="创建按钮" id="btn">
+<div id="dv"></div>
+
+<script src="common.js"></script>
+<script>
+    document.getElementById("btn").onclick=function () {
+        if (!my$("btn2")){
+            var obj=document.createElement("input");
+            obj.type="button";
+            obj.value="按钮";
+            obj.id="btn2";
+            my$("dv").appendChild(obj);
+        }
+    };
+
+</script>
+</body>
+</html>

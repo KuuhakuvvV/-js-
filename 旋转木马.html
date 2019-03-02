@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+            margin: 0;
+            padding: 0
+        }
+
+        body, button, input, select, textarea {
+            font: 12px/1.5 "Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif;
+            color: #666;
+        }
+
+        ol, ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        fieldset, img {
+            border: 0;
+            vertical-align: top;
+        }
+
+        a, input, button, select, textarea {
+            outline: none;
+        }
+
+        a, button {
+            cursor: pointer;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 100px auto;
+        }
+
+        img {
+            width: 800px;
+            height: 480px;
+        }
+
+        li {
+            list-style: none;
+            margin-top: -50px;
+        }
+
+        .slide {
+            height: 500px;
+            position: relative;
+        }
+
+        .slide li {
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+
+        .slide li img {
+            width: 100%;
+        }
+
+        .arrow {
+            opacity: 0;
+        }
+
+        .prev, .next {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            margin-top: -56px;
+            z-index: 99;
+            line-height: 112px;
+            font-size: 80px;
+            text-align: center;
+        }
+
+        .next {
+            right: 0px;
+        }
+    </style>
+    <script>
+        var config = [
+            {
+                width: 400,
+                top: 20,
+                left: 50,
+                opacity: 0.2,
+                zIndex: 2
+            },//0
+            {
+                width: 600,
+                top: 70,
+                left: 0,
+                opacity: 0.8,
+                zIndex: 3
+            },//1
+            {
+                width: 800,
+                top: 100,
+                left: 200,
+                opacity: 1,
+                zIndex: 4
+            },//2
+            {
+                width: 600,
+                top: 70,
+                left: 600,
+                opacity: 0.8,
+                zIndex: 3
+            },//3
+            {
+                width: 400,
+                top: 20,
+                left: 750,
+                opacity: 0.2,
+                zIndex: 2
+            }//4
+        ];
+        //页面加载
+        window.onload = function () {
+
+            var flag=true;//假设所有的动画执行完毕
+            //1\散开图片
+            var list = my$("slide").getElementsByTagName("li");
+            //分配函数
+            function assign() {
+                for (var i = 0; i < list.length; i++) {
+                    animate(list[i], config[i],function () {
+                        //所有动画执行完毕定时器停止后，把flag设置为true
+                        flag=true;
+                    });
+                }
+            }
+            assign();//调用分配函数
+            //右边按钮
+            my$("arrRight").onclick = function () {
+                if (flag){
+                    flag=false;
+                    config.push(config.shift());
+                    //数组改变后重新分配，调用分配函数
+                    assign();
+                }
+            };
+            //左边按钮
+            my$("arrLeft").onclick = function (){
+                if (flag){
+                    flag=false;
+                    config.unshift(config.pop());
+                    //数组改变后重新分配，调用分配函数
+                    assign();
+                }
+            };
+            //鼠标进入，左右焦点div显示
+            my$("wrap").onmouseover = function () {
+                animate(my$("arrow"), {"opacity": 1})
+            };
+            my$("wrap").onmouseout = function () {
+                animate(my$("arrow"), {"opacity": 0})
+            };
+        };
+
+
+    </script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li><a href="#"><img src="img/初音.jpg"/></a></li>
+            <li><a href="#"><img src="img/初音反色.jpg"/></a></li>
+            <li><a href="#"><img src="img/同框.jpg"/></a></li>
+            <li><a href="#"><img src="img/蕾米莉亚.jpg"/></a></li>
+            <li><a href="#"><img src="img/雾纱.jpg"/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev" id="arrLeft">&lt;</a>
+            <a href="javascript:;" class="next" id="arrRight">&gt;</a>
+        </div>
+    </div>
+</div>
+<script src="common.js"></script>
+</body>
+</html>

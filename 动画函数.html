@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #dv1{
+        width: 300px;
+        height: 250px;
+        background-color: aqua;
+        left: 10px;
+        margin-top: 10px;
+        position: absolute;
+    }
+
+    </style>
+</head>
+<body>
+<input type="button" value="移动到400px" id="btn1">
+<input type="button" value="移动到800px" id="btn2">
+<div id="dv1"></div>
+
+<script src="common.js"></script>
+<script>
+    //点击第一个按钮移动到400px
+    my$("btn1").onclick=function () {
+        animate(my$("dv1"),400)
+    };
+    //点击第二个按钮移动到800px
+    my$("btn2").onclick=function () {
+        animate(my$("dv1"),800)
+    };
+    //动画效果
+    function animate(element,target) {
+        clearInterval(element.timeId);
+        element.timeId=setInterval(function () {
+            //获取div当前位置
+            var current = element.offsetLeft;//获取的是数字类型没有px
+            //div每次移动的距离
+            var step=10;
+            step=current<target?step:-step;
+            //每次移动后的距离
+            current+=step;
+            //判断当前移动的位置是否到达目标位置
+            if (Math.abs(target-current)>Math.abs(step)){
+                element.style.left=current+"px";
+            } else{
+                clearInterval(element.timeId);
+                element.style.left=target+"px";
+            }
+        },30)
+    }
+
+
+
+</script>
+</body>
+</html>

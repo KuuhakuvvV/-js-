@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画廊</title>
+    <style>
+        body{
+            text-align:center;
+        }
+        div{
+            clear: both;
+        }
+        ul{
+            padding: 0px;
+            margin: 0 auto;
+            width: 720px;
+            height: 112px;
+        }
+        .box{
+            position: relative;
+        }
+        .box ul li{
+            float: left;
+            margin: 20px 12px 20px 12px;
+            list-style:none;
+            text-align: center;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../../U盘备份/考核/css/SAO.css">
+</head>
+<body>
+
+<div class="box">
+    <p>图片效果案例</p>
+    <ul id="picture">
+        <li><a href="img/初音.jpg" title="初音"><img src="img/初音.jpg" height="72" width="120"/></a></li>
+        <li><a href="img/初音反色.jpg" title="初音反色"><img src="img/初音反色.jpg" height="72" width="120"/></a></li>
+        <li><a href="img/艾米莉亚.png" title="艾米莉亚"><img src="img/艾米莉亚.png" height="72" width="120"/></a></li>
+        <li><a href="img/哥特双子.png" title="哥特双子"><img src="img/哥特双子.png" height="72" width="120"/></a></li>
+        <li><a href="img/雾纱.jpg" title="雾纱"><img src="img/雾纱.jpg" height="72" width="120"/></a></li>
+    </ul>
+    <div class="box2">
+        <img src="img/同框.jpg" id="mg" height="432" width="720" alt="720*432">
+    </div>
+    <p id="text">请点击图片</p>
+</div>
+
+
+<script src="common.js"></script>
+<script>
+    var aObjs=my$("picture").getElementsByTagName("a");
+    for (var i=0;i<aObjs.length;i++){
+       aObjs[i].onclick=function () {
+           my$("mg").src=this.href;
+           my$("text").innerText=this.title;
+           return false;
+       };
+    }
+
+
+
+</script>
+</body>
+</html>

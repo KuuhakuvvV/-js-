@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+</head>
+<body>
+<input type="button" value="隔行变色" id="btn"/>
+<ul id="uu">
+    <li>奥迪</li>
+    <li>兰博基尼</li>
+    <li>布加迪</li>
+    <li>迈凯伦</li>
+    <li>阿斯顿马丁</li>
+    <li>法拉利</li>
+    <li>柯尼赛格</li>
+    <li>帕加尼</li>
+    <li>玛莎拉蒂</li>
+    <li>劳斯莱斯</li>
+</ul>
+<script src="common.js"></script>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // my$("btn").onclick = function () {
+    //     var list = my$("uu").getElementsByTagName("li");
+    //     for (var i = 0; i < list.length; i++) {
+    //         if (i % 2 == 0) {
+    //             list[i].style.backgroundColor = "pink";
+    //         } else {
+    //             list[i].style.backgroundColor = "blue";
+    //         }
+    //     }
+    // };
+
+    // my$("btn").onclick = function () {
+    //     var list = my$("uu").getElementsByTagName("li");
+    //     for (var i = 0; i < list.length; i++) {
+    //         list[i].style.backgroundColor=i%2==0?"pink":"blue";
+    //     }
+    // };
+
+    $("#btn").click(function () {
+        $("ul>li:even").css("backgroundColor","red");
+        $("ul>li:odd").css("backgroundColor","yellow");
+    });
+
+
+</script>
+</body>
+</html>
